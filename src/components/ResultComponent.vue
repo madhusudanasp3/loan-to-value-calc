@@ -27,7 +27,7 @@
           >Estimated Home Value</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ '$ ' + result.estHomeValue }}</span>
+              <span class="form-control-plaintext">{{ '$ ' + formatNumber(result.estHomeValue) }}</span>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
           >Total Loan-to-Value Ratio</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ result.totalRatio + ' %'}}</span>
+              <span class="form-control-plaintext">{{ formatNumber(result.totalRatio) + ' %'}}</span>
             </div>
           </div>
         </div>
@@ -144,8 +144,11 @@ export default {
     result: Object
   },
   methods: {
-    formatNumber(n) {
-      return Number(n).toLocaleString();
+    formatNumber(num) {
+      return Number(num).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
     }
   }
 };
