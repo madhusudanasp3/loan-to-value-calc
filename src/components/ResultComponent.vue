@@ -37,7 +37,9 @@
           >First Mortgage Balance</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ '$ ' + result.firstMortgageBalance }}</span>
+              <span
+                class="form-control-plaintext"
+              >{{ '$ ' + formatNumber(result.firstMortgageBalance) }}</span>
             </div>
           </div>
         </div>
@@ -50,7 +52,9 @@
           >Second Mortgage Balance</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{'$ ' + result.secondMortgageBalance }}</span>
+              <span
+                class="form-control-plaintext"
+              >{{'$ ' + formatNumber(result.secondMortgageBalance) }}</span>
             </div>
           </div>
         </div>
@@ -63,7 +67,9 @@
           >Third Mortgage Balance or Other Liens</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ '$ ' + result.thirdMortgageBalance }}</span>
+              <span
+                class="form-control-plaintext"
+              >{{ '$ ' + formatNumber(result.thirdMortgageBalance) }}</span>
             </div>
           </div>
         </div>
@@ -73,7 +79,9 @@
           >Total Amount Owed On The Home</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ '$ ' + result.totalAmountOwedToHome }}</span>
+              <span
+                class="form-control-plaintext"
+              >{{ '$ ' + formatNumber(result.totalAmountOwedToHome) }}</span>
             </div>
           </div>
         </div>
@@ -98,7 +106,7 @@
           </label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ result.firstLTVRatio + ' %'}}</span>
+              <span class="form-control-plaintext">{{ formatNumber(result.firstLTVRatio) + ' %'}}</span>
             </div>
           </div>
         </div>
@@ -108,7 +116,7 @@
           >Second Mortgage LTV Ratio</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ result.secondLTVRatio + ' %' }}</span>
+              <span class="form-control-plaintext">{{ formatNumber(result.secondLTVRatio) + ' %' }}</span>
             </div>
           </div>
         </div>
@@ -118,7 +126,7 @@
           >Third Mortgage LTV Ratio</label>
           <div class="col-sm-6 padding-right-none">
             <div class="input-group">
-              <span class="form-control-plaintext">{{ result.thirdLTVRatio + ' %'}}</span>
+              <span class="form-control-plaintext">{{ formatNumber(result.thirdLTVRatio) + ' %'}}</span>
             </div>
           </div>
         </div>
