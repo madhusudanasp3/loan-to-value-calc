@@ -59,6 +59,7 @@
 
 <script>
 import InputFieldComponent from "./InputFieldComponent";
+import { EventBus } from "./LoanToValueCalc";
 
 export default {
   name: "InputComponent",
@@ -76,7 +77,7 @@ export default {
         type: "text",
         placeHolder: "Enter Amount",
         errorMsg:
-          "This field is required and must be numeric and gretaer than zero."
+          "This field is required and must be numeric and greater than zero."
       },
       mortgageBalance: {
         first: {
@@ -216,6 +217,15 @@ export default {
         !mortgageBalance.third.isValid;
       return isFormValid;
     }
+  },
+  mounted() {
+    EventBus.$on("caluclateRestls", event => {
+      // eslint-disable-next-line
+      console.log(
+        `Your are inside inputcomponents block -- click value is ${event} clicks!`
+      );
+      this.submitForm(event);
+    });
   }
 };
 </script>

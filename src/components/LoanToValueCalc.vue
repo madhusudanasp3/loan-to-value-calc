@@ -27,9 +27,9 @@
             role="tab"
             aria-controls="result"
             aria-selected="false"
-            :class="[result.totalRatio == null ? 'disabled': '',
+            :class="[result.totalRatio == null ? 'disabled1': '',
                      visibleTab === 1 ? 'active' : '']"
-            @click="visibleTab = 1"
+            @click="resultTabbehaviour"
           >Result</a>
         </div>
       </nav>
@@ -60,7 +60,8 @@
 <script>
 import InputComponent from "./InputComponent.vue";
 import ResultComponent from "./ResultComponent.vue";
-
+import Vue from "vue";
+export const EventBus = new Vue();
 export default {
   name: "LoanToValueCalc",
   components: {
@@ -81,9 +82,11 @@ export default {
         totalRatio: null,
         totalAmountOwedToHome: null
       },
-      visibleTab: 0
+      visibleTab: 0,
+      resultTabClick: 0
     };
   },
+
   methods: {
     displayResults(calculatedResults, estMortgages, estimatedHomeVal) {
       this.result.firstLTVRatio = parseFloat(calculatedResults.first);
@@ -98,6 +101,17 @@ export default {
       this.result.secondMortgageBalance = parseFloat(estMortgages.second.value);
       this.result.thirdMortgageBalance = parseFloat(estMortgages.third.value);
       this.visibleTab = 1;
+    },
+    resultTabbehaviour(event) {
+      this.resultTabClick = 1;
+      if (
+        this.result.estHomeValue == null ||
+        this.firstMortgageBalance == null
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      EventBus.$emit("caluclateRestls", event);
     }
   }
 };
