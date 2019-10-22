@@ -59,7 +59,7 @@
 
 <script>
 import InputFieldComponent from "./InputFieldComponent";
-import { EventBus } from "./LoanToValueCalc";
+import { EventBus } from "./event-bus.js";
 
 export default {
   name: "InputComponent",

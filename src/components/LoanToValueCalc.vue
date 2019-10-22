@@ -60,8 +60,7 @@
 <script>
 import InputComponent from "./InputComponent.vue";
 import ResultComponent from "./ResultComponent.vue";
-import Vue from "vue";
-export const EventBus = new Vue();
+import { EventBus } from "./event-bus.js";
 export default {
   name: "LoanToValueCalc",
   components: {
