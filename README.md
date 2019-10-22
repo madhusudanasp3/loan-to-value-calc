@@ -1,4 +1,4 @@
-# debt-to-income-calc
+# loan-tovalue-calc
 
 ## Project setup
 ```
