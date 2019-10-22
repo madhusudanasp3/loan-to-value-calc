@@ -1,4 +1,4 @@
-# loan-tovalue-calc
+# loan-to-value-calc
 
 ## Project setup
 ```
